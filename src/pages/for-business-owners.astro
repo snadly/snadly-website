@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const questions = [
+  ['What is actually profitable?', 'See product and customer performance without guessing from revenue alone.'],
+  ['What is changing?', 'Spot movement in sales, repeat purchases, cash pressure, and inventory before it becomes a surprise.'],
+  ['Where should I focus?', 'Use a small number of clear views instead of chasing reports across disconnected tools.'],
+];
+---
+
+<BaseLayout
+  title="Kilo for business owners"
+  description="Connect business systems and see sales, cash, products, and customers in one place."
+>
+  <section class="hero">
+    <p class="eyebrow">For owner-operators</p>
+    <h1>See your whole business in one place without learning data jargon.</h1>
+    <p class="lede">
+      Connect the tools you already use. Get a clear view of sales, cash,
+      products, and customers without hiring a data team first.
+    </p>
+    <div class="actions">
+      <a class="button" href="mailto:hello@example.com">See your business</a>
+    </div>
+  </section>
+
+  <section class="section section-muted split">
+    <div>
+      <p class="eyebrow">The problem</p>
+      <h2>Your systems know what is happening. They just do not agree with each other.</h2>
+      <p>
+        Sales are in one place. Accounts are in another. Inventory, margin, cash,
+        and repeat customers are hard to see together. Decisions get made from
+        partial views.
+      </p>
+      <p>Kilo connects the pieces and gives you a usable business picture without asking you to understand warehouse modelling.</p>
+    </div>
+    <aside class="note">
+      <h3>You should not need to know</h3>
+      <p>Star schemas, ETL, joins, keys, lineage, marts, staging tables, or dbt.</p>
+      <h3>You should be able to know</h3>
+      <p>Which products make money, which customers come back, what changed this month, and whether the next order is affordable.</p>
+    </aside>
+  </section>
+
+  <section class="section">
+    <p class="eyebrow">Useful questions</p>
+    <h2>Answers you can act on.</h2>
+    <div class="item-grid item-grid-three">
+      {questions.map(([title, text]) => (
+        <article>
+          <h3>{title}</h3>
+          <p>{text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section cta">
+    <p class="eyebrow">First step</p>
+    <h2>Start with two systems.</h2>
+    <p>Connect the two systems that hold the most important parts of the business, then check whether the picture is useful.</p>
+    <a class="button" href="mailto:hello@example.com">See your business</a>
+  </section>
+</BaseLayout>

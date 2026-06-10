@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const outputs = [
+  ['Warehouse models', 'Staging, intermediate, and marts structured around the source system and the business entities that matter.'],
+  ['dbt-style project structure', 'Readable SQL, tests, documentation, and naming conventions your team can adapt.'],
+  ['Lineage and assumptions', 'Transformations are inspectable instead of hidden inside a dashboard.'],
+  ['Project-based delivery', 'Spin up the warehouse for an initiative, get value, then decide what deserves long-term ownership.'],
+];
+---
+
+<BaseLayout
+  title="Kilo for BI teams"
+  description="Generate reviewable warehouse models, tests, documentation, and lineage for BI teams."
+>
+  <section class="hero">
+    <p class="eyebrow">For BI teams</p>
+    <h1>Ship a production-quality warehouse before the backlog grows again.</h1>
+    <p class="lede">
+      Your team already knows what good looks like. Kilo gives them a clean
+      starting point: models, tests, docs, and lineage they can review, govern,
+      and extend.
+    </p>
+    <div class="actions">
+      <a class="button" href="mailto:hello@example.com">Book a PoC</a>
+      <a class="button button-secondary" href="#sample-output">See what gets generated</a>
+    </div>
+  </section>
+
+  <section class="section section-muted split">
+    <div>
+      <p class="eyebrow">The problem</p>
+      <h2>Every useful analytics request starts with plumbing.</h2>
+      <p>
+        The business asks for a dashboard. Your team has to interpret the source
+        system, build the staging layer, define the marts, write tests, document
+        assumptions, and then finally answer the original question.
+      </p>
+      <p>
+        Kilo compresses that first stretch of work so your team can spend more
+        time on metrics, judgement, governance, and adoption.
+      </p>
+    </div>
+    <aside class="note">
+      <h3>Best fit</h3>
+      <p>Mid-market teams with a real BI function, a modelling backlog, and enough internal skill to review generated output seriously.</p>
+      <h3>Not trying to replace</h3>
+      <p>Your data engineer, analytics engineer, or governance process. Kilo gives them a faster base to work from.</p>
+    </aside>
+  </section>
+
+  <section class="section" id="sample-output">
+    <p class="eyebrow">What you get</p>
+    <h2>Generated output your team can respect.</h2>
+    <div class="item-grid">
+      {outputs.map(([title, text]) => (
+        <article>
+          <h3>{title}</h3>
+          <p>{text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section cta">
+    <p class="eyebrow">First step</p>
+    <h2>Run a PoC on one source system.</h2>
+    <p>The right test is whether Kilo can generate a useful, inspectable model from one of your real source systems.</p>
+    <a class="button" href="mailto:hello@example.com">Book a PoC</a>
+  </section>
+</BaseLayout>

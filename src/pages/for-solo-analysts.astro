@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const changes = [
+  ['One model of the business', 'Customers, orders, revenue, products, and channels stop being separate exports.'],
+  ['Repeatable numbers', 'Reports stop depending on fragile manual steps.'],
+  ['Messy-data tolerance', 'The workflow expects imperfect IDs, odd source fields, and real operational systems.'],
+  ['Room to grow', 'Start with one warehouse, then add sources as the business and reporting needs mature.'],
+];
+---
+
+<BaseLayout
+  title="Kilo for solo analysts"
+  description="A queryable warehouse base layer for analysts who are tired of rebuilding exports."
+>
+  <section class="hero">
+    <p class="eyebrow">For solo analysts</p>
+    <h1>The warehouse you would build yourself if you had the time.</h1>
+    <p class="lede">
+      Connect Shopify, HubSpot, Stripe, QuickBooks, or the systems you already
+      live in. Get a model you can query directly instead of rebuilding the same
+      spreadsheet every week.
+    </p>
+    <div class="actions">
+      <a class="button" href="mailto:hello@example.com">Talk through a first run</a>
+    </div>
+  </section>
+
+  <section class="section section-muted split">
+    <div>
+      <p class="eyebrow">The problem</p>
+      <h2>You are the analytics team and the data platform team.</h2>
+      <p>
+        Every report depends on your ability to export, clean, join, sanity-check,
+        and explain the data. The work is valuable, but too much of it is repeat
+        assembly.
+      </p>
+      <p>Kilo gives you the warehouse base layer so your time goes into analysis rather than spreadsheet maintenance.</p>
+    </div>
+    <aside class="note">
+      <h3>Useful when</h3>
+      <p>You know SQL, understand the business, and are tired of being the only person who can reproduce the numbers.</p>
+      <h3>Output you can inspect</h3>
+      <p>The result is not just a dashboard. It is a queryable warehouse model you can check, extend, and use in your own tools.</p>
+    </aside>
+  </section>
+
+  <section class="section">
+    <p class="eyebrow">Work directly with the model</p>
+    <h2>Real SQL, not another reporting cage.</h2>
+    <pre class="code-sample"><code>SELECT
+  c.customer_id,
+  c.email,
+  COUNT(o.order_id) AS lifetime_orders,
+  SUM(o.total) AS lifetime_value
+FROM dim_customers c
+JOIN fct_orders o ON c.customer_sk = o.customer_sk
+WHERE o.order_date &gt; DATEADD('month', -12, CURRENT_DATE())
+GROUP BY 1, 2
+ORDER BY 4 DESC;</code></pre>
+  </section>
+
+  <section class="section section-muted">
+    <p class="eyebrow">What changes</p>
+    <h2>Less rebuilding. More analysis.</h2>
+    <div class="item-grid">
+      {changes.map(([title, text]) => (
+        <article>
+          <h3>{title}</h3>
+          <p>{text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

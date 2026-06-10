@@ -1,0 +1,16 @@
+---
+const links = [
+  { href: '/for-bi-teams/', label: 'BI teams' },
+  { href: '/for-solo-analysts/', label: 'Analysts' },
+  { href: '/for-business-owners/', label: 'Owners' },
+  { href: '/for-consultancies/', label: 'Consultancies' },
+];
+---
+
+<header class="site-header">
+  <a class="brand" href="/">Kilo</a>
+  <nav class="nav-links" aria-label="Primary navigation">
+    {links.map((link) => <a href={link.href}>{link.label}</a>)}
+  </nav>
+  <a class="button button-small" href="mailto:hello@example.com">Talk to us</a>
+</header>

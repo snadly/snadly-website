@@ -1,0 +1,4 @@
+# TODO: Review and tighten before launch
+User-agent: *
+Allow: /
+Sitemap: https://kilo.nz/sitemap.xml

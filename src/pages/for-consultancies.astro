@@ -2,52 +2,76 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const delivery = [
+  ['Deep understanding guaranteed', 'Training and review flow built in. Your team reviews every model, every assumption, every line. Your least experienced consultant can explain the staging logic to a skeptical technical stakeholder.'],
   ['No branding in the output', 'The generated project belongs in your delivery workflow, not on a Kilo invoice line.'],
-  ['House style support', 'Naming conventions, folder structure, documentation format, macros, and test defaults can align to how your team works.'],
-  ['Standard artefacts', 'SQL and dbt-style output that another consultant or internal team can pick up later.'],
-  ['Training and review flow', 'Your team learns how to review, adapt, and defend the generated work rather than treating it as magic.'],
+  ['House style support', 'Naming conventions, folder structure, documentation format, macros, and test defaults align to how your team works.'],
+  ['Standard artefacts', 'SQL and dbt output that another consultant or an internal team can pick up and extend.'],
 ];
 ---
 
 <BaseLayout
   title="Kilo for BI consultancies"
-  description="Generate reviewable warehouse project foundations for BI and analytics consultancies."
+  description="Run more warehouse projects without hiring more engineers. Generated dbt in your house style, reviewed and owned by your team."
 >
   <section class="hero">
     <p class="eyebrow">For BI consultancies</p>
-    <h1>Stop spending the first half of the project on plumbing.</h1>
+    <h1>Run more projects without hiring more engineers.</h1>
     <p class="lede">
-      Generate a standard warehouse project in your house style so your team can
-      spend more time on business logic, metric definitions, dashboards, and
-      client judgement.
+      Your team already delivers great warehouse projects. Kilo generates the
+      repeatable build work in your house style so your people spend more time
+      on the parts clients actually pay for — and walk into every meeting with
+      real mastery of the models.
     </p>
     <div class="actions">
       <!-- TODO: Replace mailto:hello@example.com — decide "Talk to us" destination (Calendly/form/email?) -->
       <a class="button" href="mailto:hello@example.com">Talk to us</a>
-      <a class="button button-secondary" href="#white-label">White-label details</a>
+      <a class="button button-secondary" href="#white-label">How it works</a>
     </div>
   </section>
 
   <section class="section section-muted split">
     <div>
       <p class="eyebrow">The problem</p>
-      <h2>Clients pay for expertise. Too many projects start with commodity build work.</h2>
+      <h2>You can only grow by hiring juniors. Juniors in front of clients is where things break.</h2>
       <p>
-        Source-system interpretation, staging models, naming conventions, initial
-        marts, docs, and tests are necessary. They are also repeatable enough
-        that senior people should not do them from zero every time.
+        Your senior engineers are the bottleneck. You hire juniors because it
+        is the only way the numbers work. But a junior consultant who doesn't
+        fully understand the staging layer is one client question away from a
+        loss of confidence. You need every person on the project to be able to
+        defend the work, not just the senior who built it.
       </p>
-      <p>Kilo gives your team an accelerator that still leaves the judgement with you.</p>
+      <p>
+        Kilo generates the build base in standard dbt SQL, fully documented,
+        so your consultants master the warehouse faster than if they'd written
+        every line themselves.
+      </p>
     </div>
     <aside class="note">
       <h3>Best fit</h3>
-      <p>Consultancies that already deliver warehouse or BI projects and want faster starts without compromising reviewability or ownership.</p>
+      <p>Consultancies that already deliver warehouse or BI projects and want to run more of them without compromising client confidence or delivery quality.</p>
       <h3>The client-facing story</h3>
-      <p>You deliver architecture, metric definitions, business interpretation, and adoption. Kilo handles a large share of the initial build base.</p>
+      <p>Your team delivers architecture, metric definitions, business interpretation, and adoption. Kilo handles the initial build base. The client never hears the name Kilo — they see your people, your standards, your quality.</p>
     </aside>
   </section>
 
-  <section class="section" id="white-label">
+  <section class="section">
+    <p class="eyebrow">AI you can trust</p>
+    <h2>Not another AI demo. Real dbt your team can inspect.</h2>
+    <p>
+      You have heard every AI pitch in the last two years. Most produce
+      models that look right and break under scrutiny. Worse: a consultant
+      in front of a client with generated code they cannot explain.
+    </p>
+    <p>
+      Kilo's output is standard dbt SQL. No AI at runtime. No black box.
+      Every transformation is documented with assumptions, column
+      descriptions, and lineage. Your team reviews every model before it
+      reaches a client. The result: your people understand the warehouse
+      more deeply than if they had built it from scratch.
+    </p>
+  </section>
+
+  <section class="section section-muted" id="white-label">
     <p class="eyebrow">White-label delivery</p>
     <h2>The output should look like your best work.</h2>
     <div class="item-grid">
@@ -63,47 +87,8 @@ const delivery = [
   <section class="section cta">
     <p class="eyebrow">First step</p>
     <h2>Trial it on a recent project shape.</h2>
-    <p>The right test is whether Kilo can produce a starting project your team would actually review, adapt, and ship.</p>
+    <p>The right test: can Kilo generate the staging layer and marts your team would have built for a recent client engagement — in your house style, with documentation your junior consultant can defend?</p>
     <!-- TODO: Replace mailto:hello@example.com -->
-    <a class="button" href="mailto:hello@example.com">Talk to us</a>
-  </section>
-
-  <section class="section section-muted split">
-    <div>
-      <p class="eyebrow">The problem</p>
-      <h2>Clients pay for expertise. Too many projects start with commodity build work.</h2>
-      <p>
-        Source-system interpretation, staging models, naming conventions, initial
-        marts, docs, and tests are necessary. They are also repeatable enough
-        that senior people should not do them from zero every time.
-      </p>
-      <p>Kilo gives your team an accelerator that still leaves the judgement with you.</p>
-    </div>
-    <aside class="note">
-      <h3>Best fit</h3>
-      <p>Consultancies that already deliver warehouse or BI projects and want faster starts without compromising reviewability or ownership.</p>
-      <h3>The client-facing story</h3>
-      <p>You deliver architecture, metric definitions, business interpretation, and adoption. Kilo handles a large share of the initial build base.</p>
-    </aside>
-  </section>
-
-  <section class="section" id="white-label">
-    <p class="eyebrow">White-label delivery</p>
-    <h2>The output should look like your best work.</h2>
-    <div class="item-grid">
-      {delivery.map(([title, text]) => (
-        <article>
-          <h3>{title}</h3>
-          <p>{text}</p>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <section class="section cta">
-    <p class="eyebrow">First step</p>
-    <h2>Trial it on a recent project shape.</h2>
-    <p>The right test is whether Kilo can produce a starting project your team would actually review, adapt, and ship.</p>
     <a class="button" href="mailto:hello@example.com">Talk to us</a>
   </section>
 </BaseLayout>

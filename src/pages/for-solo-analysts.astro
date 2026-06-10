@@ -2,63 +2,108 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const changes = [
-  ['One model of the business', 'Customers, orders, revenue, products, and channels stop being separate exports.'],
-  ['Repeatable numbers', 'Reports stop depending on fragile manual steps.'],
-  ['Messy-data tolerance', 'The workflow expects imperfect IDs, odd source fields, and real operational systems.'],
-  ['Room to grow', 'Start with one warehouse, then add sources as the business and reporting needs mature.'],
+  ['One model of the business', 'Customers, orders, revenue, and products stop being separate CSV exports. They become tables that agree with each other.'],
+  ['Numbers you can trust', 'Spot-check the output against your existing spreadsheet. Same source data should give you the same numbers. If it does not, you can see exactly why.'],
+  ['Handles messy data', 'CSV exports, odd source fields, inconsistent IDs — that is what you work with. The pipeline expects it and cleans it.'],
+  ['Grows with you', 'Start with one CSV. Add more sources as the business asks for more reporting. You are not locking into a multi-year platform decision.'],
 ];
 ---
 
 <BaseLayout
   title="Kilo for solo analysts"
-  description="A queryable warehouse base layer for analysts who are tired of rebuilding exports."
+  description="Turn your CSV exports into a queryable data warehouse. Spot-check it against your spreadsheet — working in the same afternoon."
 >
   <section class="hero">
     <p class="eyebrow">For solo analysts</p>
-    <h1>The warehouse you would build yourself if you had the time.</h1>
+    <h1>Your spreadsheet logic. A real database. Same afternoon.</h1>
     <p class="lede">
-      Connect Shopify, HubSpot, Stripe, QuickBooks, or the systems you already
-      live in. Get a model you can query directly instead of rebuilding the same
-      spreadsheet every week.
+      Upload the CSV exports you already work with — Shopify, Stripe,
+      QuickBooks, whatever generates the files you live in. Kilo builds
+      the database, writes the queries, and you spot-check the numbers
+      against your spreadsheet. If you can use INDEX(MATCH), you can
+      read the SQL.
     </p>
     <div class="actions">
-      <!-- TODO: Replace mailto:hello@example.com — decide what "first run" means (free trial? demo? Calendly?) -->
-      <a class="button" href="mailto:hello@example.com">Talk through a first run</a>
+      <!-- TODO: Replace mailto:hello@example.com — decide self-serve signup destination -->
+      <a class="button" href="mailto:hello@example.com">Try it free</a>
+      <a class="button button-secondary" href="#how-it-works">How it works</a>
     </div>
   </section>
 
   <section class="section section-muted split">
     <div>
       <p class="eyebrow">The problem</p>
-      <h2>You are the analytics team and the data platform team.</h2>
+      <h2>You are one person. The reporting has to come from somewhere.</h2>
       <p>
-        Every report depends on your ability to export, clean, join, sanity-check,
-        and explain the data. The work is valuable, but too much of it is repeat
-        assembly.
+        Every Monday, you export CSVs from the tools your company uses.
+        You join them with INDEX(MATCH), clean the data, format the report,
+        and email it out. By Tuesday, someone asks a follow-up that
+        requires a different join. You rebuild Wednesday morning. Thursday's
+        question uses data you did not export. Real analysis never happens.
       </p>
-      <p>Kilo gives you the warehouse base layer so your time goes into analysis rather than spreadsheet maintenance.</p>
+      <p>
+        Setting up a data warehouse sounds like another full-time job.
+        It should not be. Kilo builds the database for you. You verify
+        the output against the numbers you already trust. That is it.
+      </p>
     </div>
     <aside class="note">
       <h3>Useful when</h3>
-      <p>You know SQL, understand the business, and are tired of being the only person who can reproduce the numbers.</p>
-      <h3>Output you can inspect</h3>
-      <p>The result is not just a dashboard. It is a queryable warehouse model you can check, extend, and use in your own tools.</p>
+      <p>You are the data person. You know the business inside out. You are tired of being the only person who can reproduce the numbers — and tired of rebuilding the spreadsheet every week.</p>
+      <h3>Safe to try</h3>
+      <p>No approval chain. No setup project. You upload a CSV on your own time. If it works, you have something to show. If it does not, you lost an afternoon and nobody needs to know.</p>
+      <h3>Not for IT departments</h3>
+      <p>You do not need to set up servers, configure databases, or learn a command line. You upload a CSV. Kilo does the rest. The output is standard stuff — not vendor lock-in.</p>
     </aside>
   </section>
 
+  <section class="section" id="how-it-works">
+    <p class="eyebrow">Not a project. An afternoon.</p>
+    <h2>Upload. Verify. Go.</h2>
+    <div class="item-grid">
+      <article>
+        <h3>1. Upload your CSV exports</h3>
+        <p>Drop in the files you already generate — Shopify orders, Stripe payments, QuickBooks invoices. No database connections needed.</p>
+      </article>
+      <article>
+        <h3>2. Kilo builds the database</h3>
+        <p>It cleans the data, maps the relationships, and generates all the queries. This takes minutes, not weeks.</p>
+      </article>
+      <article>
+        <h3>3. Spot-check against your spreadsheet</h3>
+        <p>Run your usual Monday numbers. Do they match? If they do — and they should — you are done. If something looks off, you can inspect the query that produced it.</p>
+      </article>
+      <article>
+        <h3>4. Answer questions from a query, not a rebuild</h3>
+        <p>Next time the Head of Growth asks about customer segments from 6 months ago, you type a question instead of rebuilding a spreadsheet.</p>
+      </article>
+    </div>
+  </section>
+
   <section class="section">
-    <p class="eyebrow">Work directly with the model</p>
-    <h2>Real SQL, not another reporting cage.</h2>
+    <p class="eyebrow">See the logic</p>
+    <h2>Your INDEX(MATCH), as a query you can read.</h2>
+    <p>
+      You do not need to learn SQL before you start. But you can read what
+      Kilo writes. Every transformation is a plain text query — no black
+      box, no mystery numbers. Below is the kind of thing Kilo generates.
+      If you can follow an INDEX(MATCH), you can follow this.
+    </p>
     <pre class="code-sample"><code>SELECT
-  c.customer_id,
+  c.customer_name,
   c.email,
   COUNT(o.order_id) AS lifetime_orders,
-  SUM(o.total) AS lifetime_value
-FROM dim_customers c
-JOIN fct_orders o ON c.customer_sk = o.customer_sk
+  SUM(o.total)  AS lifetime_value
+FROM customers c
+JOIN orders o ON c.customer_id = o.customer_id
 WHERE o.order_date &gt; DATEADD('month', -12, CURRENT_DATE())
 GROUP BY 1, 2
 ORDER BY 4 DESC;</code></pre>
+    <p style="margin-top:1rem;">
+      This is not a reporting cage. It is a real database you can query,
+      connect to tools you might use later, or hand to someone else if the
+      team grows. Nothing is locked into Kilo.
+    </p>
   </section>
 
   <section class="section section-muted">
@@ -72,5 +117,13 @@ ORDER BY 4 DESC;</code></pre>
         </article>
       ))}
     </div>
+  </section>
+
+  <section class="section cta">
+    <p class="eyebrow">First step</p>
+    <h2>Upload a CSV. Check your numbers.</h2>
+    <p>Pick the export that takes the most time to rebuild every week. Upload it. Kilo generates the database and queries. Spot-check the output against your spreadsheet. If the numbers reconcile, you have real infrastructure — not just another spreadsheet. If they do not, you lost an afternoon and nobody needs to know. No approvals, no proposals, no career risk.</p>
+    <!-- TODO: Replace mailto:hello@example.com -->
+    <a class="button" href="mailto:hello@example.com">Try it free</a>
   </section>
 </BaseLayout>

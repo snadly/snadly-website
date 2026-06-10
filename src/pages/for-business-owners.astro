@@ -2,25 +2,27 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const questions = [
-  ['What is actually profitable?', 'See product and customer performance without guessing from revenue alone.'],
-  ['What is changing?', 'Spot movement in sales, repeat purchases, cash pressure, and inventory before it becomes a surprise.'],
-  ['Where should I focus?', 'Use a small number of clear views instead of chasing reports across disconnected tools.'],
+  ['What is actually profitable?', 'See which products and customers make money — not just which ones generate the most revenue.'],
+  ['What is my cash position right now?', 'Real-time view of what is coming in, what is going out, and what is due. Not what Xero said two days ago.'],
+  ['What changed this month?', 'Spot movement in sales, repeat purchases, inventory, and margins before it becomes a problem you cannot reverse.'],
 ];
 ---
 
 <BaseLayout
   title="Kilo for business owners"
-  description="Connect business systems and see sales, cash, products, and customers in one place."
+  description="Upload your spreadsheets and connect Xero. Get custom reports your accounting software should give you but does not."
 >
   <section class="hero">
     <p class="eyebrow">For owner-operators</p>
-    <h1>See your whole business in one place without learning data jargon.</h1>
+    <h1>Your business numbers. In one place. Finally.</h1>
     <p class="lede">
-      Connect the tools you already use. Get a clear view of sales, cash,
-      products, and customers without hiring a data team first.
+      Some of your data lives in Xero. Some lives in spreadsheets.
+      Some lives in your head. That is fine — it is how small
+      businesses actually work. Connect what you have and get
+      the reports Xero should give you but does not.
     </p>
     <div class="actions">
-      <!-- TODO: Replace mailto:hello@example.com — decide what "See your business" means (guided demo? form?) -->
+      <!-- TODO: Replace mailto:hello@example.com — decide guided onboarding destination -->
       <a class="button" href="mailto:hello@example.com">See your business</a>
     </div>
   </section>
@@ -28,25 +30,34 @@ const questions = [
   <section class="section section-muted split">
     <div>
       <p class="eyebrow">The problem</p>
-      <h2>Your systems know what is happening. They just do not agree with each other.</h2>
+      <h2>Xero tells you what happened. It does not let you ask your own questions.</h2>
       <p>
-        Sales are in one place. Accounts are in another. Inventory, margin, cash,
-        and repeat customers are hard to see together. Decisions get made from
-        partial views.
+        You can see your profit and loss. You can see your bank balance
+        from two days ago. But you cannot ask: which products actually
+        make money? Which customers are worth keeping? Can I afford this
+        next order? Xero's reports are pre-canned. Your spreadsheet data
+        — stock, campaigns, customer lists — does not talk to your
+        accounting data at all.
       </p>
-      <p>Kilo connects the pieces and gives you a usable business picture without asking you to understand warehouse modelling.</p>
+      <p>
+        You have been running this business for years making decisions
+        from partial pictures. The data exists. It just has never been
+        in one place.
+      </p>
     </div>
     <aside class="note">
-      <h3>You should not need to know</h3>
-      <p>Star schemas, ETL, joins, keys, lineage, marts, staging tables, or dbt.</p>
-      <h3>You should be able to know</h3>
-      <p>Which products make money, which customers come back, what changed this month, and whether the next order is affordable.</p>
+      <h3>No proper systems required</h3>
+      <p>Your data is spreadsheets and Xero. That is a real stack. You do not need Salesforce, or an API, or an IT department. Upload what you have. Kilo handles the rest.</p>
+      <h3>See where every number comes from</h3>
+      <p>Click any figure in your report and see exactly where it originated — that cell in your stock sheet, that line in Xero from Tuesday. You do not need to know what data lineage means. You just need to know the number is real.</p>
+      <h3>Checked before you see it</h3>
+      <p>Every report is automatically tested for sanity. If a number looks wrong — if totals do not add up, if something has doubled, if a date makes no sense — it gets flagged before you see it. You do not need to verify the maths yourself.</p>
     </aside>
   </section>
 
   <section class="section">
-    <p class="eyebrow">Useful questions</p>
-    <h2>Answers you can act on.</h2>
+    <p class="eyebrow">What you get</p>
+    <h2>Custom reports. Not Xero's templates.</h2>
     <div class="item-grid item-grid-three">
       {questions.map(([title, text]) => (
         <article>
@@ -57,10 +68,35 @@ const questions = [
     </div>
   </section>
 
+  <section class="section section-muted split">
+    <div>
+      <p class="eyebrow">Will it work with my data?</p>
+      <h2>If it is in a spreadsheet or Xero, yes.</h2>
+      <p>
+        Your stock tracking spreadsheet. The invoice register your
+        office manager updates. That Google Sheet with the ad campaign
+        conversion data someone set up two years ago. Upload them.
+        Kilo cleans, matches, and connects the data so it actually
+        agrees with itself.
+      </p>
+      <p>
+        This is not a tool that expects clean APIs and database
+        connectors. It expects the kind of data real small businesses
+        actually have.
+      </p>
+    </div>
+    <aside class="note">
+      <h3>What you will see</h3>
+      <p>Cash position this morning. Margin per product line. Which customers come back. What changed this month. Whether the next order is affordable.</p>
+      <h3>What you will not see</h3>
+      <p>Setup wizards. Configuration screens. Words you need to Google. A price that assumes you run a 300-person company.</p>
+    </aside>
+  </section>
+
   <section class="section cta">
     <p class="eyebrow">First step</p>
-    <h2>Start with two systems.</h2>
-    <p>Connect the two systems that hold the most important parts of the business, then check whether the picture is useful.</p>
+    <h2>We walk you through it. You see your numbers on the screen.</h2>
+    <p>You are not going to configure anything. Someone walks you through uploading your main spreadsheets and connecting Xero. You see your real numbers — from your real data — in that session. If the picture is useful, you keep going. If it is not, you lost an hour.</p>
     <!-- TODO: Replace mailto:hello@example.com -->
     <a class="button" href="mailto:hello@example.com">See your business</a>
   </section>

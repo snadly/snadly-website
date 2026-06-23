@@ -4,27 +4,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const outputs = [
   ['Staging and marts', 'Clean, documented models that map directly to your source systems and business entities.'],
   ['Tests and lineage', 'Data quality assertions and column-level lineage with every model — whether you have these today or you are trying to get there.'],
-  ['Real dbt in your repo', 'Standard dbt SQL your engineers can inspect, modify, and extend with or without Kilo.'],
+  ['Real dbt in your repo', 'Standard dbt SQL your engineers can inspect, modify, and extend with or without SNADLY.'],
   ['Docs that stay current', 'Column descriptions, assumptions, and transformation logic that ship with the model rather than lagging behind.'],
 ];
 
 const workflow = [
-  ['1. Kilo interprets a source system', 'Generates staging models, intermediate logic, marts, tests, and documentation in standard dbt SQL.'],
+  ['1. SNADLY interprets a source system', 'Generates staging models, intermediate logic, marts, tests, and documentation in standard dbt SQL.'],
   ['2. A PR lands in your repo', 'Your analytics engineer reviews the pull request like any other contribution — comments, change requests, approval.'],
   ['3. Your team merges what passes review', 'Your governance. Your codebase. Your standards. Nothing ships without your sign-off.'],
-  ['4. You own everything going forward', 'Modify any model with or without Kilo. Hand it to a new hire. Move it to a different repo. It is just dbt.'],
+  ['4. You own everything going forward', 'Modify any model with or without SNADLY. Hand it to a new hire. Move it to a different repo. It is just dbt.'],
 ];
 ---
 
 <BaseLayout
-  title="Kilo for BI teams"
+  title="SNADLY for BI teams"
   description="Get more dbt models into production without lowering the bar. Standard dbt PRs raised against your repo, reviewed and owned by your team."
 >
   <section class="hero">
     <p class="eyebrow">For BI teams</p>
     <h1>More models into production. Same team. Best practice by default.</h1>
     <p class="lede">
-      Your team knows what good looks like. They are also drowning. Kilo
+      Your team knows what good looks like. They are also drowning. SNADLY
       generates standard dbt models, tests, and docs — raises a PR against
       your repo — and your engineers decide what ships.
     </p>
@@ -54,9 +54,9 @@ const workflow = [
     </div>
     <aside class="note">
       <h3>Best fit</h3>
-      <p>Teams with a real BI function who understand dbt best practice and are stretched too thin to stay there. If you know what tests you should be writing, Kilo writes the first draft.</p>
+      <p>Teams with a real BI function who understand dbt best practice and are stretched too thin to stay there. If you know what tests you should be writing, SNADLY writes the first draft.</p>
       <h3>Your team still runs the show</h3>
-      <p>Kilo raises a PR. Your engineers review, request changes, and merge. You own every line. You can modify anything with or without Kilo. Your governance, your codebase.</p>
+      <p>SNADLY raises a PR. Your engineers review, request changes, and merge. You own every line. You can modify anything with or without SNADLY. Your governance, your codebase.</p>
     </aside>
   </section>
 
@@ -93,7 +93,7 @@ const workflow = [
       <p>
         Models are generated once — after that, they are just dbt code in your
         repo. You can modify anything, move it anywhere, hand it to a new hire
-        six months from now. Nothing depends on Kilo being available.
+        six months from now. Nothing depends on SNADLY being available.
       </p>
       <p>
         The AI writes the first draft. Your team reviews and owns the finished
@@ -110,7 +110,7 @@ const workflow = [
   <section class="section cta">
     <p class="eyebrow">First step</p>
     <h2>We raise a PR. Your engineer reviews it.</h2>
-    <p>Kilo generates staging models, marts, tests, and docs for one of your real source systems. The output lands as a PR against a test repo. Your analytics engineer reviews it like any other contribution. If she would merge it, you have something worth scaling.</p>
+    <p>SNADLY generates staging models, marts, tests, and docs for one of your real source systems. The output lands as a PR against a test repo. Your analytics engineer reviews it like any other contribution. If she would merge it, you have something worth scaling.</p>
     <!-- TODO: Replace mailto:hello@example.com -->
     <a class="button" href="mailto:hello@example.com">Book a PoC</a>
   </section>

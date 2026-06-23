@@ -1,4 +1,4 @@
-# Kilo internal positioning
+# SNADLY internal positioning
 
 > **Unlinked internal document.** Not customer-facing copy. Preserves the strategic context behind the four persona pages and the homepage router.
 

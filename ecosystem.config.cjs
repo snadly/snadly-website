@@ -1,8 +1,8 @@
 module.exports = {
   apps: [{
-    name: 'kilo-website',
+    name: 'snadly-website',
     script: 'dist/server/entry.mjs',
-    cwd: '/opt/kilo-website',
+    cwd: '/opt/snadly-website',
     env: {
       HOST: '127.0.0.1',
       PORT: 4322,

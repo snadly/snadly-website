@@ -1,6 +1,6 @@
-# Kilo website
+# SNADLY website
 
-Astro 6 website scaffold for **Kilo**. It runs as a standalone Node server behind PM2 and deploys through GitHub Actions using the same shape as the DocketWorks website.
+Astro 6 website scaffold for **SNADLY**. It runs as a standalone Node server behind PM2 and deploys through GitHub Actions using the same shape as the DocketWorks website.
 
 ## Develop
 
@@ -18,7 +18,7 @@ Copy `.env.example` to `.env` for local or server-side values. Content and integ
 
 ## Deploy
 
-The production server is expected to have the repo at `/opt/kilo-website`, with PM2 available to the deploy user.
+The production server is expected to have the repo at `/opt/snadly-website`, with PM2 available to the deploy user.
 
 Automatic deploys run from `.github/workflows/deploy.yml` on pushes to `master`, SSH to the server, and run `deploy/deploy.sh`.
 
@@ -30,7 +30,7 @@ Required GitHub Actions secrets:
 
 Runtime defaults are in `ecosystem.config.cjs`:
 
-- PM2 app: `kilo-website`
+- PM2 app: `snadly-website`
 - Host: `127.0.0.1`
 - Port: `4322`
 

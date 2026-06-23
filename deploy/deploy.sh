@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Deploy script - run on the server as the owner of /opt/kilo-website and the
-# PM2 daemon that keeps kilo-website running.
+# Deploy script - run on the server as the owner of /opt/snadly-website and the
+# PM2 daemon that keeps snadly-website running.
 
 export CI=true
 
-cd /opt/kilo-website
+cd /opt/snadly-website
 
 git fetch origin
 git reset --hard origin/master

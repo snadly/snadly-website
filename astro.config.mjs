@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   // Used for canonical URLs and Open Graph tags. Update when the production host is confirmed.
-  site: 'https://kilo.nz',
+  site: 'https://snadly.nz',
   adapter: node({ mode: 'standalone' }),
   vite: {
     plugins: [tailwindcss()],

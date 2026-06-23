@@ -20,11 +20,11 @@
 
 **Secret worry:** Her warehouse is one of the few things in the company that actually works — but it is slipping. She knows best practice is eroding under the backlog pressure. A tool that takes control of the codebase would be catastrophic, but she cannot keep going like this either.
 
-**Governance concern:** If Kilo is writing her ETL, who is in charge? Can her team modify models without Kilo? What happens when the PR needs a change and Kilo is not available? The contribution model needs to look like another team member, not a vendor that ships code and disappears.
+**Governance concern:** If SNADLY is writing her ETL, who is in charge? Can her team modify models without SNADLY? What happens when the PR needs a change and SNADLY is not available? The contribution model needs to look like another team member, not a vendor that ships code and disappears.
 
 **AI fear:** AI making unexpected changes to production pipelines. But the deeper fear: a tool that works until it does not. If her team cannot maintain the models independently, the tool becomes a dependency, not an accelerator. She trusts her engineers' PR reviews, not black boxes.
 
-**What lands:** "Standard dbt PR raised against your repo. Your engineers review, test, and merge. You own every line. You can modify anything with or without Kilo. Kilo contributes like another team member — your governance, your codebase, your standards. Tests, documentation, and lineage with every model — whether you have them today or you are trying to get there."
+**What lands:** "Standard dbt PR raised against your repo. Your engineers review, test, and merge. You own every line. You can modify anything with or without SNADLY. SNADLY contributes like another team member — your governance, your codebase, your standards. Tests, documentation, and lineage with every model — whether you have them today or you are trying to get there."
 
 **What scares her off:** A tool that takes control of the codebase. Models she cannot modify outside the platform. A vendor that ships code her team cannot maintain independently. Any suggestion that replaces her engineers or bypasses their review process.
 
@@ -32,7 +32,7 @@
 
 **Decision authority:** Can approve a PoC on one source system without additional sign-off. A full rollout needs CFO approval, but a successful PoC gets her the budget conversation. If the per-user pricing maths out, she can get procurement sign-off.
 
-**CTA path:** PoC on one real source system. The test is: "Kilo raises a PR against a test repo with one of our source systems. My analytics engineer reviews it. If she would merge it, we have something."
+**CTA path:** PoC on one real source system. The test is: "SNADLY raises a PR against a test repo with one of our source systems. My analytics engineer reviews it. If she would merge it, we have something."
 
 ---
 
@@ -62,7 +62,7 @@
 
 **AI fear:** "AI wrote it" means "I cannot verify it." He has seen AI hallucinate numbers. If he cannot inspect the logic — in terms he understands — he cannot trust the output, and he is the one who has to defend it to the CEO. But the deeper fear: AI that produces SQL he cannot read at all. He needs to see the logic and recognise it.
 
-**What lands:** "Upload your CSV. Kilo generates the warehouse. Spot-check it against your spreadsheet — the numbers should match. Here is the SQL that built your customer summary — it is your INDEX(MATCH) logic, written as a query you can read and learn from. No setup project. No approval needed. Working in the same afternoon. If it works, you have something to show. If it does not, you lost an afternoon and nobody needs to know."
+**What lands:** "Upload your CSV. SNADLY generates the warehouse. Spot-check it against your spreadsheet — the numbers should match. Here is the SQL that built your customer summary — it is your INDEX(MATCH) logic, written as a query you can read and learn from. No setup project. No approval needed. Working in the same afternoon. If it works, you have something to show. If it does not, you lost an afternoon and nobody needs to know."
 
 **What scares him off:** A setup wizard with 12 steps. Jargon he has to Google. Output he cannot reconcile against his existing numbers. Pricing that requires CEO approval — he has a company card, not a procurement process. Anything with his name on it that could blow up in front of his boss.
 
@@ -92,7 +92,7 @@
 
 **AI fear:** She does not understand AI and does not want to. "AI" sounds like a thing that makes decisions she cannot explain. She needs to trust whatever she is looking at — if she cannot understand how the number got there, she will not use it. The numbers need to match the reality she knows from running the business every day.
 
-**What lands:** "Upload your spreadsheets and connect Xero. Kilo is an AI report builder — it writes the reports you wish Xero gave you. You can click on any number and see exactly where it came from: that cell in your stock sheet, that line in Xero from Tuesday. Every report is automatically checked for sanity before you see it — if a number looks wrong, it gets flagged before it reaches you. No jargon. No setup project. You will recognise every number because they come from your own spreadsheets and your own Xero account."
+**What lands:** "Upload your spreadsheets and connect Xero. SNADLY is an AI report builder — it writes the reports you wish Xero gave you. You can click on any number and see exactly where it came from: that cell in your stock sheet, that line in Xero from Tuesday. Every report is automatically checked for sanity before you see it — if a number looks wrong, it gets flagged before it reaches you. No jargon. No setup project. You will recognise every number because they come from your own spreadsheets and your own Xero account."
 
 **What scares her off:** The words "data pipeline," "ETL," "schema," "data warehouse," "seats," or "per-user pricing." Anything that requires her to configure something. A tool that tells her to "connect your data sources" and shows her a blank screen with 12 connector logos. Anything that assumes her business runs on Salesforce and Stripe. A price that sounds like it belongs to a company with 300 employees.
 
@@ -120,10 +120,10 @@
 
 **AI fear:** He's heard every AI pitch in the last 2 years. Most produce plausible-looking models that fall apart under scrutiny. His team would spend more time fixing bad generated code than writing it from scratch. But the deeper fear: AI amplifies the junior risk. If a junior doesn't understand the code they wrote, they're in trouble. If they don't understand AI-generated code — code nobody wrote — they're completely exposed. A consultant standing in front of a client with generated models they can't explain or defend is a liability.
 
-**What lands:** "Your consultants walk into client meetings with deeper mastery of the warehouse than if they'd built it from scratch. Every transformation is standard dbt SQL, fully documented with assumptions and lineage. Your team reviews and owns every model. The training and review flow means your least experienced consultant can explain the staging logic to a skeptical technical stakeholder. No Kilo branding. Your delivery, your name, your client relationship."
+**What lands:** "Your consultants walk into client meetings with deeper mastery of the warehouse than if they'd built it from scratch. Every transformation is standard dbt SQL, fully documented with assumptions and lineage. Your team reviews and owns every model. The training and review flow means your least experienced consultant can explain the staging logic to a skeptical technical stakeholder. No SNADLY branding. Your delivery, your name, your client relationship."
 
 **What scares him off:** Any output his juniors can't explain in front of a client. Vendor branding. Models he can't style to his house conventions. A tool that makes his team weaker, not stronger. Per-client pricing that kills his margin.
 
 **Decision authority:** Can approve a trial on a recent project shape without partner consensus. Full adoption would need the other partner on board, but he's the delivery lead — his recommendation carries weight.
 
-**CTA path:** Partner conversation. Trial on a past project: "Here's a recent Shopify-to-Snowflake project — can Kilo produce the staging and marts my team would have built?" If yes, pilot on a live client with a fixed-scope retainer.
+**CTA path:** Partner conversation. Trial on a past project: "Here's a recent Shopify-to-Snowflake project — can SNADLY produce the staging and marts my team would have built?" If yes, pilot on a live client with a fixed-scope retainer.

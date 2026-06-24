@@ -1,6 +1,6 @@
 # SNADLY deployment runbook
 
-Last updated: 2026-06-24 NZDT / 2026-06-23 UTC.
+Last updated: 2026-06-24 NZDT / 2026-06-24 UTC.
 
 This document records the production settings for the SNADLY website and the steps needed to rebuild the deployment from a fresh Oracle Cloud VM.
 
@@ -18,13 +18,23 @@ Do not commit private keys, API keys, GitHub secret values, or Porkbun account c
 - GitHub repo: `https://github.com/snadly/snadly-website`
 - Default branch: `master`
 - Local deployment path on server: `/opt/snadly-website`
-- Current server commit at setup time: `28a2a14 Fix SNADLY deploy workflow path`
+- Current production commit at latest update: `91c317b Add product screenshot showcase`
 
 Relevant repo files:
 
 - `.github/workflows/deploy.yml`
 - `deploy/deploy.sh`
 - `ecosystem.config.cjs`
+
+Product screenshot assets:
+
+| File | Dimensions | Approx size | Usage |
+| --- | --- | --- | --- |
+| `public/product/dashboard.webp` | `1220 x 1812` | `95 KB` | Primary dashboard screenshot on the homepage product showcase |
+| `public/product/autopilot.webp` | `1172 x 886` | `48 KB` | Autopilot build screenshot on the homepage product showcase |
+| `public/product/relationships.webp` | `1172 x 1540` | `85 KB` | FK/PK relationship inference screenshot on the homepage product showcase |
+
+The homepage product showcase is implemented in `src/pages/index.astro` and styled in `src/styles/global.css`.
 
 GitHub Actions deploy secrets:
 

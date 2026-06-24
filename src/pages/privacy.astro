@@ -1,1 +1,50 @@
-<!-- TODO: Add privacy policy content -->
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const sections = [
+  {
+    title: 'What we collect',
+    text: 'We collect the information you send us directly, such as your name, email address, company details, project context, and any files or source data you choose to provide for evaluation or delivery.',
+  },
+  {
+    title: 'How we use it',
+    text: 'We use this information to assess fit, run demonstrations or pilots, generate warehouse outputs, provide support, improve SNADLY, and maintain normal business records.',
+  },
+  {
+    title: 'Data handling',
+    text: 'Customer data is handled for the agreed project purpose. We avoid using production data where representative sample data is enough, and we keep access limited to the people and systems needed to perform the work.',
+  },
+  {
+    title: 'Third-party services',
+    text: 'We may use reputable infrastructure, communication, analytics, and development services to operate SNADLY. These providers process information only as needed to provide their services to us.',
+  },
+  {
+    title: 'Contact',
+    text: 'Email adrian.white@gmail.com for privacy questions, access requests, or deletion requests.',
+  },
+];
+---
+
+<BaseLayout
+  title="Privacy | SNADLY"
+  description="SNADLY privacy notice covering project data, contact details, and how information is used."
+>
+  <section class="hero legal-hero">
+    <p class="eyebrow">Privacy</p>
+    <h1>Privacy notice.</h1>
+    <p class="lede">
+      This notice explains how SNADLY handles information shared with us during
+      evaluation, pilot, and delivery work.
+    </p>
+  </section>
+
+  <section class="section legal-page">
+    <p class="fine-print">Last updated: 24 June 2026</p>
+    {sections.map((section) => (
+      <article>
+        <h2>{section.title}</h2>
+        <p>{section.text}</p>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

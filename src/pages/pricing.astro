@@ -1,1 +1,97 @@
-<!-- TODO: Add pricing page content -->
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const plans = [
+  {
+    name: 'Pilot',
+    audience: 'For teams validating SNADLY on one real source system.',
+    details: [
+      'Profile source data and infer relationships',
+      'Generate a first warehouse model, tests, and documentation',
+      'Review output together before anything scales',
+    ],
+    cta: 'Book a pilot',
+  },
+  {
+    name: 'Team',
+    audience: 'For BI teams and analysts turning recurring source data into trusted models.',
+    details: [
+      'Repeatable warehouse builds and report generation',
+      'Standard dbt output your team can inspect and own',
+      'Pricing aligned to build activity, not passive viewers',
+    ],
+    cta: 'Discuss team use',
+  },
+  {
+    name: 'Partner',
+    audience: 'For consultancies using SNADLY inside client delivery workflows.',
+    details: [
+      'White-label output in your house style',
+      'Review flows that keep consultants fluent in the model',
+      'Commercial terms matched to client delivery volume',
+    ],
+    cta: 'Talk partnership',
+  },
+];
+---
+
+<BaseLayout
+  title="Pricing | SNADLY"
+  description="SNADLY pricing is scoped around the work being built: pilots, team use, and partner delivery."
+>
+  <section class="hero">
+    <p class="eyebrow">Pricing</p>
+    <h1>Pricing that follows the work, not every dashboard viewer.</h1>
+    <p class="lede">
+      SNADLY is priced around warehouse builds, source complexity, and delivery
+      workflow. We keep the first engagement scoped so you can judge the output
+      on real data before committing to a broader rollout.
+    </p>
+    <div class="actions">
+      <a class="button" href="mailto:adrian.white@gmail.com">Start with your data</a>
+      <a
+        class="button button-secondary"
+        href="https://www.loom.com/share/4c05501e9fa14edd97f10663f32faa7d"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Watch demo
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="price-grid">
+      {plans.map((plan) => (
+        <article class="price-card">
+          <div>
+            <p class="eyebrow">{plan.name}</p>
+            <h2>{plan.name}</h2>
+            <p>{plan.audience}</p>
+          </div>
+          <ul>
+            {plan.details.map((item) => <li>{item}</li>)}
+          </ul>
+          <a class="button button-secondary" href="mailto:adrian.white@gmail.com">{plan.cta}</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-muted split">
+    <div>
+      <p class="eyebrow">How we scope</p>
+      <h2>Start with the smallest useful proof.</h2>
+      <p>
+        The right first step is one real data source, one useful business
+        question, and one output your team can inspect. If the generated models,
+        tests, lineage, and documentation are not useful, there is no reason to
+        expand.
+      </p>
+    </div>
+    <aside class="note">
+      <h3>Common pricing inputs</h3>
+      <p>Number of source systems, model complexity, refresh frequency, review requirements, and whether the output is used internally or inside a client delivery process.</p>
+    </aside>
+  </section>
+</BaseLayout>

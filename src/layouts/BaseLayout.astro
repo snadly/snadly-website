@@ -6,28 +6,42 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
   robots?: string;
 }
 
 const {
   title = 'SNADLY',
-  description = 'SNADLY website.',
+  description = 'SNADLY turns messy business data into a clean, inspectable warehouse in minutes.',
+  image = '/product/dashboard.webp',
   robots,
 } = Astro.props;
+
+const site = Astro.site ?? new URL('https://snadly.com');
+const canonicalUrl = new URL(Astro.url.pathname, site).toString();
+const imageUrl = new URL(image, site).toString();
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     {robots && <meta name="robots" content={robots} />}
-    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#f6f3ee" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <!-- TODO: Add og:title, og:description, og:image, og:url meta tags -->
-    <!-- TODO: Add Twitter card meta tags -->
-    <!-- TODO: Add canonical URL meta tag -->
-    <!-- TODO: Add analytics script (GA/Plausible/etc.) -->
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:site_name" content="SNADLY" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>

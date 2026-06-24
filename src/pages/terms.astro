@@ -1,1 +1,50 @@
-<!-- TODO: Add terms of service content -->
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const sections = [
+  {
+    title: 'Use of SNADLY',
+    text: 'SNADLY is provided for evaluation, pilot, and agreed delivery work. You are responsible for ensuring you have the right to provide any data, files, or system access used in a project.',
+  },
+  {
+    title: 'Generated output',
+    text: 'Unless agreed otherwise in writing, generated warehouse code, documentation, and related project artefacts created for your project are intended for your review and use. You remain responsible for validating outputs before relying on them operationally.',
+  },
+  {
+    title: 'No guarantee of results',
+    text: 'SNADLY aims to produce useful, inspectable outputs quickly, but results depend on the quality, structure, and completeness of the data provided. Pilots are designed to test that fit before wider rollout.',
+  },
+  {
+    title: 'Confidentiality',
+    text: 'We treat non-public project information as confidential and expect customers and partners to do the same for SNADLY materials, workflows, and commercial terms.',
+  },
+  {
+    title: 'Contact',
+    text: 'Email adrian.white@gmail.com for commercial terms, support, or questions about these terms.',
+  },
+];
+---
+
+<BaseLayout
+  title="Terms | SNADLY"
+  description="SNADLY terms covering project use, generated output, validation, and confidentiality."
+>
+  <section class="hero legal-hero">
+    <p class="eyebrow">Terms</p>
+    <h1>Terms of use.</h1>
+    <p class="lede">
+      These terms provide a practical baseline for using SNADLY during
+      evaluations, pilots, and delivery work.
+    </p>
+  </section>
+
+  <section class="section legal-page">
+    <p class="fine-print">Last updated: 24 June 2026</p>
+    {sections.map((section) => (
+      <article>
+        <h2>{section.title}</h2>
+        <p>{section.text}</p>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

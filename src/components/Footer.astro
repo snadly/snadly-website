@@ -4,6 +4,9 @@ const links = [
   { href: '/for-solo-analysts/', label: 'For analysts' },
   { href: '/for-business-owners/', label: 'For owners' },
   { href: '/for-consultancies/', label: 'For consultancies' },
+  { href: '/pricing/', label: 'Pricing' },
+  { href: '/privacy/', label: 'Privacy' },
+  { href: '/terms/', label: 'Terms' },
 ];
 ---
 
@@ -14,6 +17,5 @@ const links = [
   </div>
   <nav aria-label="Footer navigation">
     {links.map((link) => <a href={link.href}>{link.label}</a>)}
-    <!-- TODO: Add privacy policy and terms of service links -->
   </nav>
 </footer>

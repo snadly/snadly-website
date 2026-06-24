@@ -312,6 +312,30 @@ main {
   gap: 1rem;
 }
 
+.bio-profile {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.bio-profile h3 {
+  margin-bottom: 0.25rem;
+}
+
+.bio-profile p {
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.bio-photo {
+  width: 5.5rem;
+  height: 5.5rem;
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  object-fit: cover;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;

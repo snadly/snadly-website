@@ -23,6 +23,25 @@ const routes = [
     text: 'Standard dbt output in your house style. Generated models your consultants can explain and defend. No SNADLY branding.',
   },
 ];
+
+const productScreens = [
+  {
+    src: '/product/autopilot.webp',
+    alt: 'SNADLY Autopilot build screen showing warehouse build steps and progress.',
+    title: 'Autopilot build',
+    text: 'One run profiles source data, infers relationships, designs the schema, and builds the warehouse.',
+    width: 1172,
+    height: 886,
+  },
+  {
+    src: '/product/relationships.webp',
+    alt: 'SNADLY relationship inference screen showing source tables connected in a graph.',
+    title: 'Relationship inference',
+    text: 'Inspect detected keys, dimensions, and table relationships before the project is built.',
+    width: 1172,
+    height: 1540,
+  },
+];
 ---
 
 <BaseLayout
@@ -36,6 +55,54 @@ const routes = [
       Connect your systems and get a clean, queryable foundation your team
       can inspect, extend, or deliver. Working the same day.
     </p>
+  </section>
+
+  <section class="section product-showcase" aria-labelledby="product-showcase-title">
+    <div class="product-copy">
+      <p class="eyebrow">Product</p>
+      <h2 id="product-showcase-title">The warehouse build, visible from end to end.</h2>
+      <p>
+        SNADLY turns raw source data into an inspectable warehouse, then gives
+        teams the dashboards, lineage, reports, and relationship evidence they
+        need to trust the output.
+      </p>
+    </div>
+
+    <div class="product-stage">
+      <figure class="product-shot product-shot-primary">
+        <img
+          src="/product/dashboard.webp"
+          alt="SNADLY dashboard showing an event locations map, generated charts, and data tables."
+          width="1220"
+          height="1812"
+          loading="eager"
+          decoding="async"
+        />
+        <figcaption>
+          <strong>Generated dashboard</strong>
+          <span>Reports, maps, charts, and tables built from the new warehouse.</span>
+        </figcaption>
+      </figure>
+
+      <div class="product-support-grid">
+        {productScreens.map((screen) => (
+          <figure class="product-shot">
+            <img
+              src={screen.src}
+              alt={screen.alt}
+              width={screen.width}
+              height={screen.height}
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              <strong>{screen.title}</strong>
+              <span>{screen.text}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
   </section>
 
   <section class="section">

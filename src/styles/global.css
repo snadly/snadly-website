@@ -176,6 +176,76 @@ main {
   gap: 1rem;
 }
 
+.product-showcase {
+  width: 100%;
+  max-width: none;
+  padding-inline: max(1rem, calc((100vw - var(--max)) / 2));
+  background: #070d18;
+  color: #f5f7fb;
+}
+
+.product-copy {
+  display: grid;
+  max-width: 760px;
+  gap: 1rem;
+  margin-bottom: clamp(1.75rem, 4vw, 3rem);
+}
+
+.product-showcase h2,
+.product-showcase h3 {
+  color: #f5f7fb;
+}
+
+.product-showcase p {
+  color: #aeb7c5;
+}
+
+.product-showcase .eyebrow {
+  color: #8f9cff;
+}
+
+.product-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.product-support-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.product-shot {
+  overflow: hidden;
+  border: 1px solid #263044;
+  border-radius: 8px;
+  background: #0b1220;
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 0.24);
+  margin: 0;
+}
+
+.product-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.product-shot figcaption {
+  display: grid;
+  gap: 0.35rem;
+  border-top: 1px solid #263044;
+  color: #aeb7c5;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  padding: 1rem;
+}
+
+.product-shot figcaption strong {
+  color: #f5f7fb;
+  font-size: 1rem;
+}
+
 .route-grid,
 .item-grid,
 .feature-list {
@@ -328,7 +398,8 @@ main {
   .route-grid,
   .item-grid,
   .item-grid-three,
-  .split {
+  .split,
+  .product-stage {
     grid-template-columns: 1fr;
   }
 

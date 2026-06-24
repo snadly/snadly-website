@@ -307,6 +307,11 @@ main {
   margin-bottom: 0.6rem;
 }
 
+.bio-note {
+  display: grid;
+  gap: 1rem;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;

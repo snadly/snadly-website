@@ -351,6 +351,11 @@ main {
   gap: 1rem;
 }
 
+.bio-grid {
+  display: grid;
+  gap: 1rem;
+}
+
 .bio-profile {
   display: flex;
   gap: 1rem;

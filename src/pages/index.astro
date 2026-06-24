@@ -42,6 +42,55 @@ const productScreens = [
     height: 1540,
   },
 ];
+
+const people = [
+  {
+    name: 'Adrian White',
+    role: 'Auckland-based data, AI, and analytics practitioner.',
+    photo: '/people/adrian-white.webp',
+    photoAlt: 'Adrian White',
+    photoWidth: 320,
+    photoHeight: 320,
+    linkedin: 'https://www.linkedin.com/in/seedatanz/',
+    paragraphs: [
+      `Adrian White is an Auckland-based data, AI, and analytics practitioner
+      with a track record of pioneering applied AI solutions. He has
+      contributed to AI safety through red teaming work with Anthropic, was a
+      top entrant in the inaugural HackaPrompt competition, and was one of
+      the leading Snowflake contributors on Stack Overflow during the
+      platform's rapid growth era.`,
+      `Adrian demonstrated one of the world's earliest Snowflake AI
+      integrations in Auckland in March 2023 and is the current world
+      champion of PromptGolf. His work spans data platforms, AI evaluation,
+      semantic search, accessibility technology, and rapid AI product
+      development.`,
+    ],
+  },
+  {
+    name: 'Corrin Lakeland',
+    role: 'Builder of audited data systems, ETL pipelines, and applied ML products.',
+    photo: '/people/corrin-lakeland.webp',
+    photoAlt: 'Corrin Lakeland',
+    photoWidth: 200,
+    photoHeight: 200,
+    linkedin: 'https://www.linkedin.com/in/corrinlakeland/',
+    paragraphs: [
+      `Corrin Lakeland builds systems that turn messy operational data into
+      decisions a business can act on. He built his first neural network in
+      1993, completed a PhD in machine learning, and has been writing ETL
+      pipelines since before "data engineering" was a job title, working
+      across forecasting, warehousing, customer analytics, and automation.`,
+      `He's also run his own businesses, using data inside them to sharpen
+      pricing, marketing, and day-to-day operations. Being both the person who
+      builds the pipeline and the person who depends on it taught him to treat
+      analytics as engineering: output that's traceable, inspectable, and solid
+      enough to trust.`,
+      `Corrin has always built analytics to be audited and re-run, not just
+      delivered. That's why he built SNADLY, to make that discipline something
+      any team can rely on.`,
+    ],
+  },
+];
 ---
 
 <BaseLayout
@@ -117,51 +166,41 @@ const productScreens = [
 
   <section class="section split">
     <div>
-      <p class="eyebrow">About Adrian White</p>
-      <h2>Built by a data and AI practitioner.</h2>
+      <p class="eyebrow">About the builders</p>
+      <h2>Built by practitioners who have lived the data problem.</h2>
     </div>
-    <aside class="note bio-note">
-      <div class="bio-profile">
-        <img
-          class="bio-photo"
-          src="/people/adrian-white.webp"
-          alt="Adrian White"
-          width="320"
-          height="320"
-          loading="lazy"
-          decoding="async"
-        />
-        <div>
-          <h3>Adrian White</h3>
-          <p>Auckland-based data, AI, and analytics practitioner.</p>
-        </div>
-      </div>
-      <p>
-        Adrian White is an Auckland-based data, AI, and analytics practitioner
-        with a track record of pioneering applied AI solutions. He has
-        contributed to AI safety through red teaming work with Anthropic, was a
-        top entrant in the inaugural HackaPrompt competition, and was one of
-        the leading Snowflake contributors on Stack Overflow during the
-        platform's rapid growth era.
-      </p>
-      <p>
-        Adrian demonstrated one of the world's earliest Snowflake AI
-        integrations in Auckland in March 2023 and is the current world
-        champion of PromptGolf. His work spans data platforms, AI evaluation,
-        semantic search, accessibility technology, and rapid AI product
-        development.
-      </p>
-      <div class="actions">
-        <a
-          class="button button-secondary"
-          href="https://www.linkedin.com/in/seedatanz/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn profile
-        </a>
-      </div>
-    </aside>
+    <div class="bio-grid">
+      {people.map((person) => (
+        <article class="note bio-note">
+          <div class="bio-profile">
+            <img
+              class="bio-photo"
+              src={person.photo}
+              alt={person.photoAlt}
+              width={person.photoWidth}
+              height={person.photoHeight}
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <h3>{person.name}</h3>
+              <p>{person.role}</p>
+            </div>
+          </div>
+          {person.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          <div class="actions">
+            <a
+              class="button button-secondary"
+              href={person.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn profile
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
   </section>
 
   <section class="section">

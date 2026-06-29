@@ -90,6 +90,29 @@ const people = [
       any team can rely on.`,
     ],
   },
+  {
+    name: 'Yadwinder "Yogi" Sharma',
+    role: 'Advisor — insurance and banking domain, and AI testing tooling.',
+    initials: 'YS',
+    // Photo not yet supplied. Drop a square image at public/people/yogi-sharma.webp
+    // and add photo/photoAlt/photoWidth/photoHeight to render it instead of the initials.
+    paragraphs: [
+      `Yadwinder "Yogi" Sharma advises SNADLY on the insurance and banking
+      domains where much of the platform's work is concentrated. He brings
+      more than nineteen years testing insurance, banking, and
+      critical-infrastructure systems across New Zealand and globally, and has
+      delivered over fifty testing programs for organisations including Suncorp
+      (AA Insurance and Vero), IAG, Watercare, ACC, and Mercury Energy.`,
+      `His insurance experience runs deep — spanning Guidewire claims
+      implementations across multiple carrier brands, Salesforce platform
+      delivery, and broker connectivity programs. Yogi is also the Founder and
+      CEO of Nimbal, a New Zealand venture building AI-powered testing agents
+      and quality-assurance tooling, selected into the MBIE-backed Ministry of
+      Awesome accelerator and used by more than thirty customers worldwide. That
+      combination of front-line insurance practice and AI-tooling discipline is
+      what he brings to SNADLY as an advisor.`,
+    ],
+  },
 ];
 ---
 
@@ -173,31 +196,39 @@ const people = [
       {people.map((person) => (
         <article class="note bio-note">
           <div class="bio-profile">
-            <img
-              class="bio-photo"
-              src={person.photo}
-              alt={person.photoAlt}
-              width={person.photoWidth}
-              height={person.photoHeight}
-              loading="lazy"
-              decoding="async"
-            />
+            {person.photo ? (
+              <img
+                class="bio-photo"
+                src={person.photo}
+                alt={person.photoAlt}
+                width={person.photoWidth}
+                height={person.photoHeight}
+                loading="lazy"
+                decoding="async"
+              />
+            ) : (
+              <span class="bio-photo bio-photo-initials" aria-hidden="true">
+                {person.initials}
+              </span>
+            )}
             <div>
               <h3>{person.name}</h3>
               <p>{person.role}</p>
             </div>
           </div>
           {person.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-          <div class="actions">
-            <a
-              class="button button-secondary"
-              href={person.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn profile
-            </a>
-          </div>
+          {person.linkedin && (
+            <div class="actions">
+              <a
+                class="button button-secondary"
+                href={person.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn profile
+              </a>
+            </div>
+          )}
         </article>
       ))}
     </div>

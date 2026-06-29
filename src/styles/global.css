@@ -380,6 +380,16 @@ main {
   object-fit: cover;
 }
 
+.bio-photo-initials {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 1.5rem;
+  font-weight: 780;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;

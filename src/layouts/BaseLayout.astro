@@ -51,5 +51,41 @@ const imageUrl = new URL(image, site).toString();
       <slot />
     </main>
     <Footer />
+
+    <script>
+      // Sticky header: add a .scrolled class once the page is scrolled past
+      // a few pixels, so the header gains its frosted background + border.
+      const header = document.querySelector('.site-header');
+      if (header) {
+        const onScroll = () => {
+          header.classList.toggle('scrolled', window.scrollY > 8);
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+      }
+
+      // Scroll-reveal: fade + lift [data-reveal] elements into view as they
+      // enter the viewport. Honors prefers-reduced-motion via CSS — when motion
+      // is reduced, the [data-reveal] elements are visible regardless, so this
+      // observer only adds the cosmetic .is-visible class.
+      const revealTargets = document.querySelectorAll('[data-reveal]');
+      if (revealTargets.length > 0 && 'IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver(
+          (entries, observer) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            }
+          },
+          { rootMargin: '0px 0px -8% 0px', threshold: 0.08 },
+        );
+        revealTargets.forEach((el) => revealObserver.observe(el));
+      } else if (revealTargets.length > 0) {
+        // No IntersectionObserver support — just show everything.
+        revealTargets.forEach((el) => el.classList.add('is-visible'));
+      }
+    </script>
   </body>
 </html>

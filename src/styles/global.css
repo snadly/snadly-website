@@ -102,7 +102,6 @@ main {
   min-height: 70vh;
 }
 
-.site-header,
 .site-footer,
 .hero,
 .section {
@@ -111,12 +110,39 @@ main {
 }
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  transition:
+    background 320ms ease,
+    border-color 320ms ease,
+    backdrop-filter 320ms ease,
+    padding 320ms ease;
+}
+
+.site-header-inner {
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 1.5rem;
   align-items: center;
-  border-bottom: 1px solid rgb(217 211 200 / 0.7);
+  width: min(100% - 2rem, var(--max));
+  margin-inline: auto;
   padding: 1.15rem 0;
+}
+
+.site-header.scrolled {
+  background: rgb(246 243 238 / 0.85);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border-bottom-color: rgb(217 211 200 / 0.7);
+}
+
+.site-header.scrolled .site-header-inner {
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
 }
 
 .brand,
@@ -598,4 +624,58 @@ main {
   .site-footer {
     flex-direction: column;
   }
+}
+
+/* -------------------------------------------------------------------------
+   Motion: scroll-reveal, sticky header scroll state.
+   All gated behind prefers-reduced-motion so users who opt out see no motion.
+   ------------------------------------------------------------------------- */
+
+/* Scroll-reveal: elements with [data-reveal] start hidden and lift into view
+   when .is-visible is added by an IntersectionObserver in BaseLayout. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* When motion is reduced, reveal targets are simply visible — no transform,
+   no transition. Content is never trapped off-screen. */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Gradient accent text — used on a key hero phrase to draw the eye,
+   the same background-clip:text technique po2order uses. */
+.gradient-text {
+  background: linear-gradient(
+    100deg,
+    var(--accent-strong) 0%,
+    var(--accent) 55%,
+    #1ba89a 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Reserve space for the sticky header so content never slides under it.
+   Only needed because the header is now sticky rather than in-flow. */
+main {
+  scroll-margin-top: 5rem;
 }

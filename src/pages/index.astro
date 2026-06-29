@@ -123,16 +123,19 @@ const people = [
   title="SNADLY | Your data. A real database. In minutes."
   description="Connect your systems and get a clean, queryable foundation your team can inspect, extend, or deliver. Working the same day."
 >
-  <section class="hero hero-home">
+  <section class="hero hero-home" data-reveal>
     <p class="eyebrow">SNADLY</p>
-    <h1>Your data. A real database. In minutes, not weeks.</h1>
+    <h1>
+      Your data. A real database. In
+      <span class="gradient-text">minutes</span>, not weeks.
+    </h1>
     <p class="lede">
       Connect your systems and get a clean, queryable foundation your team
       can inspect, extend, or deliver. Working the same day.
     </p>
   </section>
 
-  <section class="section product-showcase" aria-labelledby="product-showcase-title">
+  <section class="section product-showcase" aria-labelledby="product-showcase-title" data-reveal>
     <div class="product-copy">
       <p class="eyebrow">Product</p>
       <h2 id="product-showcase-title">The warehouse build, visible from end to end.</h2>
@@ -190,7 +193,7 @@ const people = [
     </div>
   </section>
 
-  <section class="section split">
+  <section class="section split" data-reveal>
     <div>
       <p class="eyebrow">About the builders</p>
       <h2>Built by practitioners who have lived the data problem.</h2>
@@ -237,7 +240,7 @@ const people = [
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" data-reveal>
     <div class="route-grid">
       {routes.map((route) => (
         <a class="route-card" href={route.href}>
@@ -248,7 +251,7 @@ const people = [
     </div>
   </section>
 
-  <section class="section section-muted split">
+  <section class="section section-muted split" data-reveal>
     <div>
       <p class="eyebrow">What SNADLY produces</p>
       <h2>The useful part before the dashboard.</h2>

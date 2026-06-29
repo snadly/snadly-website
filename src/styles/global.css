@@ -452,6 +452,20 @@ main {
   transform: translateY(-1px);
 }
 
+/* CTA micro-arrow: primary buttons get a trailing arrow that nudges right
+   on hover. Excludes .button-secondary (outline CTAs) and .button-small
+   (the header "Talk to us"). Pure CSS, no markup changes. */
+.button:not(.button-secondary):not(.button-small)::after {
+  content: '→';
+  margin-left: 0.2em;
+  transition: transform 200ms ease;
+  display: inline-block;
+}
+
+.button:not(.button-secondary):not(.button-small):hover::after {
+  transform: translateX(3px);
+}
+
 .button-secondary {
   background: transparent;
   color: var(--accent-strong);

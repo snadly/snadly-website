@@ -240,10 +240,15 @@ const people = [
     </div>
   </section>
 
-  <section class="section" data-reveal>
+  <section class="section">
     <div class="route-grid">
-      {routes.map((route) => (
-        <a class="route-card" href={route.href}>
+      {routes.map((route, i) => (
+        <a
+          class="route-card"
+          href={route.href}
+          data-reveal
+          style={`--reveal-delay: ${i * 80}ms`}
+        >
           <h2>{route.label}</h2>
           <p>{route.text}</p>
         </a>

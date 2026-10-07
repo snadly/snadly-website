@@ -1,0 +1,146 @@
+<figure class="demo-video" aria-label="SNADLY video demo">
+  <div class="demo-video-player" data-demo-player>
+    <div class="demo-video-placeholder">
+      <button class="demo-video-load" type="button" hidden>
+        <svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
+          <circle cx="28" cy="28" r="27" fill="currentColor" />
+          <path d="M23 17v22l17-11z" fill="#070d18" />
+        </svg>
+        <span>Watch video demo</span>
+        <span class="demo-video-duration">9 minutes 13 seconds</span>
+      </button>
+      <noscript><p>Watch the SNADLY video demo using the Loom link below.</p></noscript>
+    </div>
+  </div>
+  <figcaption>
+    <p>Play the demo here. The Loom player loads only when you click.</p>
+    <a
+      href="https://www.loom.com/share/4c05501e9fa14edd97f10663f32faa7d"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Open demo on Loom (new tab)</a>
+  </figcaption>
+  <!-- Template contents stay inert: no Loom request until the viewer clicks. -->
+  <template data-demo-embed>
+    <iframe
+      src="https://www.loom.com/embed/4c05501e9fa14edd97f10663f32faa7d?hideEmbedTopBar=true"
+      title="SNADLY demo: Build a Snowflake Data Warehouse in Minutes (9 minutes 13 seconds)"
+      allow="fullscreen; picture-in-picture"
+      allowfullscreen
+      referrerpolicy="strict-origin-when-cross-origin"
+      tabindex="0"
+    ></iframe>
+  </template>
+</figure>
+
+<script>
+  const demo = document.querySelector('.demo-video');
+  const button = demo?.querySelector<HTMLButtonElement>('.demo-video-load');
+  const player = demo?.querySelector<HTMLElement>('[data-demo-player]');
+  const template = demo?.querySelector<HTMLTemplateElement>('[data-demo-embed]');
+
+  if (button && player && template) {
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      const iframe = template.content.querySelector('iframe')?.cloneNode(true) as
+        | HTMLIFrameElement
+        | undefined;
+      if (!iframe) return;
+      player.replaceChildren(iframe);
+      iframe.focus();
+    }, { once: true });
+  }
+</script>
+
+<style>
+  .demo-video {
+    margin: 0 0 clamp(1.75rem, 4vw, 3rem);
+  }
+
+  .demo-video-player {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border: 1px solid #263044;
+    border-radius: 8px;
+    background: #0b1220;
+  }
+
+  .demo-video-placeholder,
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .demo-video-placeholder {
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    background: radial-gradient(ellipse at center, #18233c, #0b1220 75%);
+  }
+
+  .demo-video-load {
+    display: grid;
+    justify-items: center;
+    gap: 0.75rem;
+    border: 0;
+    border-radius: 8px;
+    padding: 1rem;
+    background: transparent;
+    color: #f5f7fb;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .demo-video-load[hidden] {
+    display: none;
+  }
+
+  .demo-video-load:hover {
+    color: #b9c2ff;
+  }
+
+  .demo-video-duration {
+    color: #aeb7c5;
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+
+  figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    align-items: baseline;
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: #aeb7c5;
+  }
+
+  figcaption p {
+    font-size: inherit;
+  }
+
+  figcaption a {
+    color: #f5f7fb;
+  }
+
+  @media (max-width: 640px) {
+    .demo-video-placeholder {
+      padding: 0.5rem;
+    }
+
+    .demo-video-load {
+      gap: 0.5rem;
+      padding: 0.5rem;
+    }
+
+    .demo-video-load svg {
+      width: 44px;
+      height: 44px;
+    }
+  }
+</style>

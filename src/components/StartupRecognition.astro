@@ -1,0 +1,65 @@
+<section class="startup-recognition" aria-labelledby="startup-recognition-title">
+  <div class="startup-recognition-copy">
+    <p class="startup-recognition-kicker">Startup program</p>
+    <h2 id="startup-recognition-title">Accepted into the <span>Databricks/Neon Startup Program</span></h2>
+  </div>
+  <div class="startup-recognition-logos" role="group" aria-label="Databricks and Neon">
+    <div class="startup-recognition-brand startup-recognition-databricks">
+      <img src="/brand/databricks.svg" alt="Databricks" width="713" height="113" decoding="async" />
+    </div>
+    <div class="startup-recognition-brand startup-recognition-neon">
+      <img src="/brand/neon.svg" alt="Neon" width="157" height="45" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .startup-recognition {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1rem;
+    max-width: var(--max);
+    margin: 0 auto 2rem;
+    padding: 1.25rem 2rem;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    border-radius: 1.25rem;
+    background: #fff;
+    box-shadow: 0 12px 36px rgb(24 33 31 / 0.04);
+  }
+  .startup-recognition-kicker {
+    margin: 0 0 0.625rem;
+    color: var(--accent-strong);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .startup-recognition h2 {
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.35;
+  }
+  .startup-recognition h2 span { display: block; font-weight: 650; }
+  .startup-recognition-logos { display: flex; align-items: center; }
+  .startup-recognition-brand { display: flex; align-items: center; justify-content: center; }
+  .startup-recognition-brand img { display: block; height: auto; max-width: 100%; }
+  .startup-recognition-databricks { padding: 28px; }
+  .startup-recognition-databricks img { width: 225px; }
+  .startup-recognition-neon { padding: 36px; }
+  .startup-recognition-neon img { width: 126px; }
+  @media (max-width: 1000px) {
+    .startup-recognition { grid-template-columns: 1fr; text-align: center; gap: 0.5rem; }
+    .startup-recognition-logos { justify-content: center; }
+  }
+  @media (max-width: 600px) {
+    .startup-recognition { margin-inline: 1.25rem; padding: 1.5rem 0.75rem 0.5rem; }
+    .startup-recognition-logos { flex-direction: column; }
+    .startup-recognition-databricks { padding: 28px 24px 18px; }
+    .startup-recognition-neon { padding: 36px; }
+  }
+</style>
